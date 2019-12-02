@@ -30,7 +30,7 @@
         <!-- This command is only for Samesite -->
         <BypassIf Property="InstallMode" Compare="ValueEqualTo" Value="HomeSite" />
         <!-- This indicates .NET Framework Full is already installed -->
-        <BypassIf Property="DotNetFull_Release" Compare="ValueGreaterThanOrEqualTo" Value="528049" />
+        <BypassIf Property="DotNetFull_Release" Compare="ValueGreaterThanOrEqualTo" Value="528040" />
         <!-- This indicates .NET Framework ZDP is already installed on Win7 -->
         <BypassIf Property="DotNetFull_MSPDetection" Compare="ValueEqualTo" Value="Y" />
         <!-- This indicates .NET Framework ZDP is already installed on Win8 -->
@@ -65,7 +65,7 @@
         <!-- This command is only for Samesite -->
         <BypassIf Property="InstallMode" Compare="ValueNotEqualTo" Value="HomeSite" />
         <!-- This indicates .NET Framework Full is already installed -->
-        <BypassIf Property="DotNetFull_Release" Compare="ValueGreaterThanOrEqualTo" Value="528049" />
+        <BypassIf Property="DotNetFull_Release" Compare="ValueGreaterThanOrEqualTo" Value="528040" />
         <!-- This indicates .NET Framework ZDP is already installed on Win7 -->
         <BypassIf Property="DotNetFull_MSPDetection" Compare="ValueEqualTo" Value="Y" />
         <!-- This indicates .NET Framework ZDP is already installed on Win8 -->
