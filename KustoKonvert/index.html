@@ -6,15 +6,14 @@
     <title>String Replacement Tool</title>
     <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body onload="loadReplacementData()">
     <div class="container">
         <h1>Kusto Query Replacement Tool</h1>
         <textarea id="inputString" placeholder="Enter your string here..."></textarea>
         <button onclick="processString()">Replace</button>
         <h2>Output:</h2>
         <textarea id="outputString" readonly></textarea>
-        <button onclick="loadReplacementData()">Load Replacement Data</button>
-        <div id="replacements" class="replacement-list"></div>
+        <div id="replacements" class="replacement-list" style="display: none;"></div>
     </div>
     <script src="script.js"></script>
 </body>
