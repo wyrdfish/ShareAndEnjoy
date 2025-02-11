@@ -2,33 +2,7 @@ function loadReplacementData() {
     fetch('replacements.csv')
         .then(response => response.text())
         .then(data => {
-            const replacementsContainer = document.getElementById("replacements");
-            replacementsContainer.innerHTML = ''; // Clear previous replacements
-
-            const lines = data.split('\n');
-
-            lines.forEach(line => {
-                const [findString, replaceString] = line.split(',');
-
-                if (findString && replaceString) {
-                    const replacementItem = document.createElement("div");
-                    replacementItem.className = "replacement-item";
-
-                    const findInput = document.createElement("input");
-                    findInput.type = "text";
-                    findInput.value = findString.trim();
-                    findInput.readOnly = true;
-
-                    const replaceInput = document.createElement("input");
-                    replaceInput.type = "text";
-                    replaceInput.value = replaceString.trim();
-                    replaceInput.readOnly = true;
-
-                    replacementItem.appendChild(findInput);
-                    replacementItem.appendChild(replaceInput);
-                    replacementsContainer.appendChild(replacementItem);
-                }
-            });
+            document.getElementById("replacements").value = data;
         })
         .catch(error => {
             console.error('Error loading replacement data:', error);
@@ -36,26 +10,28 @@ function loadReplacementData() {
         });
 }
 
+function loadReplacementDataLocal() {
+    let data = `availabilityResults,AppAvailabilityResults
+browserTimings,AppBrowserTimings
+dependencies,AppDependencies`
+
+    document.getElementById("replacements").value = data;
+}
+
 function processString() {
     let inputString = document.getElementById("inputString").value;
+    let replacementdata = document.getElementById("replacements").value;
 
-    fetch('replacements.csv')
-        .then(response => response.text())
-        .then(data => {
-            const lines = data.split('\n');
+    const lines = replacementdata.split('\n');
 
-            lines.forEach(line => {
-                const [findString, replaceString] = line.split(',');
+    lines.forEach(line => {
+        const [findString, replaceString] = line.split(',');
 
-                if (findString && replaceString) {
-                    inputString = inputString.split(findString.trim()).join(replaceString.trim());
-                }
-            });
+        if (findString && replaceString) {
+            inputString = inputString.split(findString.trim()).join(replaceString.trim());
+        }
+    });
 
-            document.getElementById("outputString").value = inputString;
-        })
-        .catch(error => {
-            console.error('Error processing string:', error);
-            alert('Failed to process string.');
-        });
+    document.getElementById("outputString").value = inputString;
+    
 }

@@ -9,11 +9,13 @@
 <body onload="loadReplacementData()">
     <div class="container">
         <h1>Kusto Query Replacement Tool</h1>
-        <textarea id="inputString" placeholder="Enter your string here..."></textarea>
+        <p>This tool replaces the Application Insights level Kusto query table and field names with workspace variants. See <a href="https://learn.microsoft.com/en-us/previous-versions/azure/azure-monitor/app/convert-classic-resource#table-structure">Microsoft Documentation</a>.</p>
+        <textarea id="inputString" placeholder="Enter your query here..."></textarea>
         <button onclick="processString()">Replace</button>
         <h2>Output:</h2>
         <textarea id="outputString" readonly></textarea>
-        <div id="replacements" class="replacement-list" style="display: none;"></div>
+        <h2>Replacements:</h2>
+        <textarea id="replacements"></textarea>
     </div>
     <script src="script.js"></script>
 </body>
